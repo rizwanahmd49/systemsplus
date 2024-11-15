@@ -25,11 +25,22 @@ public class HomePage extends Utilities {
     WebDriver driver = driverManager.getDriver();
 
     public void closeServeyPopup() {
-        driver.findElement(srvPopCloseButton).click();
+        try {
+            if (driver.findElement(srvPopCloseButton).isDisplayed())
+                driver.findElement(srvPopCloseButton).click();
+        } catch (Exception e) {
+            System.out.println("Servey Popup is not displayed");
+        }
     }
 
     public void acceptCookies() {
-        driver.findElement(acceptCookies).click();
+        try {
+            if (driver.findElement(acceptCookies).isDisplayed())
+                driver.findElement(acceptCookies).click();
+        } catch (Exception e) {
+            System.out.println("Cookies pop-up not displayed");
+        }
+
     }
 
     public void clickOnSearchIcon() {
