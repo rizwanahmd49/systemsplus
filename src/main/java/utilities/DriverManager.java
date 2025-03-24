@@ -19,6 +19,7 @@ public class DriverManager {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().window().maximize();
         driver.get(url);
+        System.out.println("Chrome browser launched successfully!");
     }
 
     public void tearDown() {
