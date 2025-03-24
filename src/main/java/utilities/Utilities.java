@@ -16,8 +16,6 @@ public class Utilities {
     public WebDriver driver = new DriverManager().getDriver();
 
 
-
-
     public void click(By byLocatorToClick, String fieldName) {
         try {
             System.out.println("Trying to click on '" + fieldName + "'..... ");
@@ -42,6 +40,20 @@ public class Utilities {
 
     public WebElement scrollToViewElement(By byLocator) {
         WebElement element = driver.findElement(byLocator);
+        JavascriptExecutor jse = ((JavascriptExecutor) driver);
+        System.out.println("Trying to scroll to view the element");
+        if (driver.toString().contains("firefox")) {
+            jse.executeScript("arguments[0].scrollIntoView();", element);
+            System.out.println("scroll command executed in Firefox");
+        } else {
+            ((JavascriptExecutor) driver).
+                    executeScript("arguments[0].scrollIntoViewIfNeeded();", element);
+            System.out.println("scroll command executed in Chrome");
+        }
+        return element;
+    }
+
+    public WebElement scrollToViewElement(WebElement element) {
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         System.out.println("Trying to scroll to view the element");
         if (driver.toString().contains("firefox")) {
