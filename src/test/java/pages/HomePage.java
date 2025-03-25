@@ -69,7 +69,7 @@ public class HomePage extends Utilities {
 
     public void clickOnFindCenter() {
         click(btnFindCenter, "Find a Center");
-        waitForElementToBeClickable(inputAddressSearch,15);
+        waitForElementToBeClickable(inputAddressSearch,5);
     }
 
     public String getUrl() {
@@ -110,7 +110,7 @@ public class HomePage extends Utilities {
     public String clickOnFirstAddressFromResult() {
         System.out.println("Trying to click on first address from result");
         scrollToViewElement(addressList);
-        waitForElementToBeClickable(addressList, 10);
+        waitForElementToBeClickable(addressList, 5);
         WebElement element = driver.findElements(addressList).get(0);
         String text = element.getText();
         element.click();
@@ -121,7 +121,7 @@ public class HomePage extends Utilities {
 
     public String getSelectedCenterName() {
         System.out.println("Retrieving Selected Center Name..");
-        waitForElementToBeClickable(txtSelectedCenter, 10);
+        waitForElementToBeClickable(txtSelectedCenter, 5);
         String selectedCenter = getText(txtSelectedCenter);
         System.out.println("Selected Center Name: " + selectedCenter);
         return selectedCenter;
