@@ -15,11 +15,7 @@ public class InterTest {
     static By socialMediaLink = By.xpath("//div[contains(@class,'login-footer-sm')]/a");
 
     //div[contains(@class,'login-footer-sm')]//child::a
-    public static void main(String[] args) {
-        InterTest interTest = new InterTest();
-        interTest.handleMultipleWindows();
 
-    }
 
     protected void handleMultipleWindows() {
         driver.manage().window().maximize();
@@ -109,5 +105,10 @@ public class InterTest {
             System.out.println("scroll command executed in Chrome");
         }
         return element;
+    }
+
+
+    public static void main(String[] args) {
+
     }
 }
